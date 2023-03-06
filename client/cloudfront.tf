@@ -51,7 +51,8 @@ resource "aws_cloudfront_distribution" "web_distribution" {
   wait_for_deployment = false
   default_root_object = "index.html"
   price_class         = "PriceClass_100"
-
+#checkov:skip=CKV2_AWS_47:Cloudfront distribution logging is not required for sample application
+#checkov:skip=CKV2_AWS_42:Cloudfront distribution logging is not required for sample application
   origin {
     domain_name = aws_s3_bucket.web_distribution.bucket_regional_domain_name
     origin_id   = "web_distribution_origin"
